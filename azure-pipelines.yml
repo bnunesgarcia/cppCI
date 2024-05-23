@@ -18,7 +18,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: '11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'clean install'
@@ -49,7 +49,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: 'Default'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: '11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'test'
