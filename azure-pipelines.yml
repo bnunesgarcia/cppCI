@@ -1,0 +1,62 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  MAVEN_OPTS: '-Dmaven.test.failure.ignore=false'
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean install'
+    options: '-DskipTests=true'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+
+- script: |
+    echo "Starting Xvfb ..."
+    export DISPLAY=:99
+    Xvfb :99 -screen 0 1920x1080x24 &
+  displayName: 'Start Xvfb'
+
+- script: |
+    echo "Installing Chrome..."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+  displayName: 'Install Chrome'
+
+- script: |
+    echo "Installing ChromeDriver..."
+    CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+    wget -N https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip -d /usr/local/bin
+    rm chromedriver_linux64.zip
+  displayName: 'Install ChromeDriver'
+
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'test'
+    options: '-DskipTests=false'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    failTaskOnFailedTests: true
