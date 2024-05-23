@@ -22,7 +22,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'clean install'
-    options: '-DskipTests=true'
+    options: '-DskipTests=false'
   
 - script: |
     echo "Starting Xvfb ..."
