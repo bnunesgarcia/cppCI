@@ -53,7 +53,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'test'
-    options: '-DskipTests=false'
+    options: '-B'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
   
 - task: PublishTestResults@2
@@ -61,3 +61,8 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     failTaskOnFailedTests: true
+
+- script: |
+    echo "Displaying logs for debugging"
+    cat $(find . -name '*.log' | grep -v '/usr/')
+  displayName: 'Display Logs'
