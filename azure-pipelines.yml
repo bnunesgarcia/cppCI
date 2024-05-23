@@ -22,13 +22,39 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'clean install'
-    options: '-DskipTests=false'
+    options: '-DskipTests=true'
   
 - script: |
     echo "Starting Xvfb ..."
     export DISPLAY=:99
     Xvfb :99 -screen 0 1920x1080x24 &
   displayName: 'Start Xvfb'
+
+- script: |
+    echo "Installing Chrome..."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+  displayName: 'Install Chrome'
+
+- script: |
+    echo "Installing ChromeDriver..."
+    CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+    wget -N https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip -d /usr/local/bin
+    rm chromedriver_linux64.zip
+  displayName: 'Install ChromeDriver'
+
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    goals: 'test'
+    options: '-DskipTests=false'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
   
 - task: PublishTestResults@2
   inputs:
