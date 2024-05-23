@@ -11,18 +11,6 @@ pool:
 
 variables:
   MAVEN_OPTS: '-Dmaven.test.failure.ignore=false'
-
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    goals: 'clean install'
-    options: '-DskipTests=true'
   
 - script: |
     echo "Starting Xvfb ..."
@@ -44,25 +32,20 @@ steps:
     rm chromedriver_linux64.zip
   displayName: 'Install ChromeDriver'
 
+steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: 'Default'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     goals: 'test'
-    options: '-B'
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    options: '-DskipTests=false'
   
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     failTaskOnFailedTests: true
-
-- script: |
-    echo "Displaying logs for debugging"
-    cat $(find . -name '*.log' | grep -v '/usr/')
-  displayName: 'Display Logs'
