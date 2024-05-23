@@ -16,8 +16,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: 'Default'
-    mavenAuthenticateFeed: false
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
@@ -35,7 +34,6 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: 'Default'
-    mavenAuthenticateFeed: false
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
