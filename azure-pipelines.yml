@@ -58,8 +58,3 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     failTaskOnFailedTests: true
-
-- script: |
-    echo "Displaying logs for debugging"
-    cat $(find . -name '*.log' | grep -v '/usr/')
-  displayName: 'Display Logs'
