@@ -11,6 +11,18 @@ pool:
 
 variables:
   MAVEN_OPTS: '-Dmaven.test.failure.ignore=false'
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    goals: 'test'
+    options: '-DskipTests=false'
   
 - script: |
     echo "Starting Xvfb ..."
@@ -31,18 +43,6 @@ variables:
     unzip chromedriver_linux64.zip -d /usr/local/bin
     rm chromedriver_linux64.zip
   displayName: 'Install ChromeDriver'
-
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    goals: 'test'
-    options: '-DskipTests=false'
   
 - task: PublishTestResults@2
   inputs:
