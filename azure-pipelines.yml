@@ -15,7 +15,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '11.0.19'
+    jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     options: '-DskipTests=true -e -X'
@@ -27,7 +27,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '11.0.19'
+    jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     options: '-e -X'
