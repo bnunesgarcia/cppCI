@@ -1,9 +1,8 @@
-package br.com.concorrencia.steps;
+package br.com.cpp.steps;
 
 
-import br.com.concorrencia.runner.RunCucumberTest;
-import constants.LoginConstants;
-import constants.MenuPerfilDeAcessoConstants;
+import br.com.cpp.runner.RunCucumberTest;
+import br.com.cpp.constants.LoginConstants;
 import org.openqa.selenium.*;
 import io.cucumber.java.pt.*;
 

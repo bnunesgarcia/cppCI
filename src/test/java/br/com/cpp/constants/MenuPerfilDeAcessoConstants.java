@@ -1,4 +1,4 @@
-package constants;
+package br.com.cpp.constants;
 
 public class MenuPerfilDeAcessoConstants {
     public static final String TITLEPERFILACESSO_SCREEN_XPATH = "/html/body/app-root/app-topbar/div/app-access-profile/div/mat-card[1]/mat-card-header";

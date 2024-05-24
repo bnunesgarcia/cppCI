@@ -1,6 +1,7 @@
-package br.com.concorrencia.support;
+package br.com.cpp.support;
 
-import br.com.concorrencia.runner.RunCucumberTest;
+import br.com.cpp.runner.RunCucumberTest;
+
 import java.util.ArrayList;
 import java.util.List;
 

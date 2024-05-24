@@ -1,6 +1,6 @@
-package br.com.concorrencia.steps;
+package br.com.cpp.steps;
 
-import br.com.concorrencia.pages.ValidaPermissoesPages;
+import br.com.cpp.pages.ValidaPermissoesPages;
 import io.cucumber.java.pt.E;
 
 public class ValidaPermissoesDoUsuarioSteps {

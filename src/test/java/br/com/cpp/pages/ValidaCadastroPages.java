@@ -1,8 +1,8 @@
-package br.com.concorrencia.pages;
+package br.com.cpp.pages;
 
-import br.com.concorrencia.runner.RunCucumberTest;
-import constants.MenuPerfilDeAcessoConstants;
-import constants.MenuUsuariosConstants;
+import br.com.cpp.runner.RunCucumberTest;
+import br.com.cpp.constants.MenuPerfilDeAcessoConstants;
+import br.com.cpp.constants.MenuUsuariosConstants;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package br.com.concorrencia.support;
+package br.com.cpp.support;
 
 public class Expected {
     public String xpath;

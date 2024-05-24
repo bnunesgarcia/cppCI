@@ -1,7 +1,7 @@
-package br.com.concorrencia.steps;
+package br.com.cpp.steps;
 
-import br.com.concorrencia.pages.ValidaMenuPages;
-import br.com.concorrencia.runner.RunCucumberTest;
+import br.com.cpp.runner.RunCucumberTest;
+import br.com.cpp.pages.ValidaMenuPages;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
 

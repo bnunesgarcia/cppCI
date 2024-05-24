@@ -1,4 +1,4 @@
-package br.com.concorrencia.runner;
+package br.com.cpp.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -16,8 +16,8 @@ import java.util.Properties;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features"},
-        plugin = {"pretty", "html:surefire-reports/test-report.html", "json:surefire-reports/test-report.json", "xml:surefire-reports/test-report.xml"},
+        features = {"src/resource/feature"},
+        plugin = {"pretty", "html:surefire-reports/test-report.html", "json:surefire-reports/test-report.json"},
 //        tags = "@teste",
         glue = {"br.com.cpp.steps"}
 )
@@ -27,7 +27,7 @@ public class RunCucumberTest {
 
     @BeforeClass
     public static void setup() throws IOException {
-        InputStream variables = new FileInputStream("src/test/resources/application.properties");
+        InputStream variables = new FileInputStream("src/resource/application.properties");
         properties.load(variables);
         driver = new FirefoxDriver();
         driver.manage().window().maximize();

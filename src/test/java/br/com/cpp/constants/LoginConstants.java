@@ -1,4 +1,4 @@
-package constants;
+package br.com.cpp.constants;
 
 public class LoginConstants {
 

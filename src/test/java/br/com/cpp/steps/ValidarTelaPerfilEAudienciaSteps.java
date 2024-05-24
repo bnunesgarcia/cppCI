@@ -1,8 +1,8 @@
-package br.com.concorrencia.steps;
+package br.com.cpp.steps;
 
-import br.com.concorrencia.runner.RunCucumberTest;
-import constants.EstudoCppConstants;
-import constants.PerfilEAudienciaConstants;
+import br.com.cpp.runner.RunCucumberTest;
+import br.com.cpp.constants.EstudoCppConstants;
+import br.com.cpp.constants.PerfilEAudienciaConstants;
 import io.cucumber.java.pt.E;
 import org.openqa.selenium.By;
 

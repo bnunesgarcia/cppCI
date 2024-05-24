@@ -1,10 +1,10 @@
-    package br.com.concorrencia.steps;
+    package br.com.cpp.steps;
 
-    import br.com.concorrencia.runner.RunCucumberTest;
-    import br.com.concorrencia.support.Expected;
-    import br.com.concorrencia.support.Utils;
-    import constants.MenuPerfilDeAcessoConstants;
-    import constants.MenuUsuariosConstants;
+    import br.com.cpp.runner.RunCucumberTest;
+    import br.com.cpp.support.Expected;
+    import br.com.cpp.support.Utils;
+    import br.com.cpp.constants.MenuPerfilDeAcessoConstants;
+    import br.com.cpp.constants.MenuUsuariosConstants;
     import org.junit.Assert;
     import org.openqa.selenium.*;
     import io.cucumber.java.pt.*;
