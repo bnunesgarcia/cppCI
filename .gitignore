@@ -1,0 +1,6 @@
+.idea
+.vscode
+report
+target
+*.iml
+surefire-reports
