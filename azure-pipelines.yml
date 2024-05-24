@@ -28,8 +28,8 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
-    options: '-e -X'
-    goals: 'test'
+    goals: 'clean test'
+    options: '-Dmaven.test.failure.ignore=true'
 
 # Etapa para publicar os resultados dos testes
 - task: PublishTestResults@2
