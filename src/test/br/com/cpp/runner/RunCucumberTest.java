@@ -19,7 +19,7 @@ import java.util.Properties;
         features = {"src/test/resources/features"},
         plugin = {"pretty", "html:surefire-reports/test-report.html", "json:surefire-reports/test-report.json", "xml:surefire-reports/test-report.xml"},
 //        tags = "@teste",
-        glue = {"br.com.concorrencia.steps"}
+        glue = {"br.com.cpp.steps"}
 )
 public class RunCucumberTest {
     public static WebDriver driver;
