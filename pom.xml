@@ -58,10 +58,7 @@
                 <configuration>
                     <reportFormat>brief</reportFormat>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <systemPropertyVariables>
-                        <surefire.reportFormat>pretty,html:target/surefire-reports/test-report.html,json:target/surefire-reports/test-report.json,xml:target/surefire-reports/test-report.xml</surefire.reportFormat>
-                    </systemPropertyVariables>
+                    <testFailureIgnore>false</testFailureIgnore>
                 </configuration>
             </plugin>
         </plugins>
