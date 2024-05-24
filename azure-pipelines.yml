@@ -28,11 +28,11 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
-    goals: 'clean test'
-    options: '-Dmaven.test.failure.ignore=true'
+    goals: 'test'
+    options: '-Dtest=RunCucumberTest test'
 
 # Etapa para publicar os resultados dos testes
 - task: PublishTestResults@2
   inputs:
-    testResultsFiles: '**/surefire-reports/*.xml'
+    testResultsFiles: '**target/surefire-reports/*.xml'
     testRunTitle: 'Surefire Test Results'
