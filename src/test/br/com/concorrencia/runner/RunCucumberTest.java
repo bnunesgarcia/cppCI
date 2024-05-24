@@ -29,7 +29,7 @@ public class RunCucumberTest {
     public static void setup() throws IOException {
         InputStream variables = new FileInputStream("src/test/resources/application.properties");
         properties.load(variables);
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
