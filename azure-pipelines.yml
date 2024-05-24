@@ -28,7 +28,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
-    options: '-e -X'
+    options: '-Dtest=RunCucumberTest.java'
     goals: 'test'
 
 # Etapa para publicar os resultados dos testes
