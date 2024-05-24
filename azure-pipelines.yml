@@ -17,7 +17,6 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
     options: '-DskipTests=true -e -X'
     goals: 'clean install'
 
@@ -29,13 +28,11 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '11.0.18'
     jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
     options: '-e -X'
     goals: 'test'
 
 # Etapa para publicar os resultados dos testes
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/*.xml'
-    failTaskOnFailedTests: true
+    testRunTitle: 'Surefire Test Results'
